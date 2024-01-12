@@ -37,7 +37,7 @@ One option to get a more accurate list of new dwellings could be to import the p
 To reproduce this data, first download the stock and flow data from Victoria's website: 
 
 Place in a subfloder labelled data_stock:
-* [stock data 2016](https://datashare.maps.vic.gov.au/search?q=uuid%3Dec2429b3-0ad5-50ff-affb-b12f7803a73f)
+* [Stock data 2016](https://datashare.maps.vic.gov.au/search?q=uuid%3Dec2429b3-0ad5-50ff-affb-b12f7803a73f)
 
 Place in a subfolder labelled data_flow:
 * [Flow data from 2016 to 2022 (one file for each year)](https://datashare.maps.vic.gov.au/search?q=Major%20Redevelopment%20Sites)
@@ -102,8 +102,8 @@ Whether the property was vacant in 2016.
 "zonecode"               
 Zoning of the property (Unclear if this is the zoning currently or in 20016)
 
-"lat" / "lon"
-lat/lon for the centroid of each development
+"lat" / "lon"                   
+lat/lon for the centroid of each piece of land
 
 "geometry"               
 geometric data describing the area of the property
