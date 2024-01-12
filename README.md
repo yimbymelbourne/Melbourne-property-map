@@ -46,7 +46,7 @@ Place in a subfolder labelled data_flow:
 Set projection as Geographicals on GDA2020, no buffer, ESRI Shapefile, select all area available
 The code will then run in R. 
 
-Within the data_flow folder, place each group of files in a subfolder referencing the year this data represents e.g. data_flow/2022/**data here**. The data from the department comes in many subfolders - leave the data structure as it is.  
+Within the data_flow folder, place each group of files in a subfolder referencing the year this data represents e.g. data_flow/2022/.... The data from the department comes in many subfolders - leave the data structure as it comes.  
 
 # Data Dictionary
 
