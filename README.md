@@ -37,11 +37,11 @@ One option to get a more accurate list of new dwellings could be to import the p
 To reproduce this data, first download the stock and flow data from Victoria's website: 
 
 Place in a subfloder labelled data_stock:
-[stock data 2016](https://datashare.maps.vic.gov.au/search?q=uuid%3Dec2429b3-0ad5-50ff-affb-b12f7803a73f)
+* [stock data 2016](https://datashare.maps.vic.gov.au/search?q=uuid%3Dec2429b3-0ad5-50ff-affb-b12f7803a73f)
 
 Place in a subfolder labelled data_flow:
-[Flow data from 2016 to 2022 (one file for each year)](https://datashare.maps.vic.gov.au/search?q=Major%20Redevelopment%20Sites)
-[Flow data from 2005 to 2016](https://datashare.maps.vic.gov.au/search?q=uuid%3D9893c72d-f85f-57ea-ab2c-076ca6f9c758)
+* [Flow data from 2016 to 2022 (one file for each year)](https://datashare.maps.vic.gov.au/search?q=Major%20Redevelopment%20Sites)
+* [Flow data from 2005 to 2016](https://datashare.maps.vic.gov.au/search?q=uuid%3D9893c72d-f85f-57ea-ab2c-076ca6f9c758)
 
 Set projection as Geographicals on GDA2020, no buffer, ESRI Shapefile, select all area available
 The code will then run in R. 
