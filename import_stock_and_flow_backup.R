@@ -97,7 +97,7 @@ flow_raw_2016 <- map_df(files[2:11],
                         sf_importer) %>% 
   select(-shapeleng,-shapearea) %>% 
   filter(status == c("Completed") | (status == "Under Construction" & yeardata == 2022)) %>% # A small number of properties are 'under construction' and never completed. usually these are when the original proejcts were an error. e.g. they were serviced apartments and not resi.  
-  mutate(development_year = if_else(is.na(yearcompl),yeardata,yearcompl)) %>% #Now let's filter out the projects that are repeated in multiple years of the flow datasets
+  mutate(year_development = if_else(is.na(yearcompl),yeardata,yearcompl)) %>% #Now let's filter out the projects that are repeated in multiple years of the flow datasets
   group_by(projectid, yeardata) %>%
   mutate(maxstoreys = max(maxstoreys),
          totaldwel  = sum(totaldwel)) %>% 
@@ -109,7 +109,7 @@ flow_raw_2016 <- map_df(files[2:11],
   filter(row_number() ==1) %>%
   mutate(address = paste(streetnum,streetname,streettype,adrsother,suburb)) %>% 
   select(development_project_id = projectid,
-         development_year = development_year,
+         development_year = year_development,
          development_data_source_year = yeardata,
          development_dwellings_total = totaldwel,
          development_dwellings_townhouses = townhouses,
@@ -125,6 +125,111 @@ flow_raw_2016 <- map_df(files[2:11],
   st_as_sf() %>% 
   ungroup()  %>% 
   mutate(id_flow = row_number()) 
+
+# Merging flow with stock is harder than you might imagine! 
+
+
+flow_with_stock <- flow_raw_2016 %>% 
+  st_transform(3577) %>% # change crs so we can measure buffer in m
+  st_buffer(dist = -1) %>%# Make all the geometries slightly smaller so we don't intersect with the property next door accidentally
+  st_transform(st_crs(flow_raw_2016)) %>%
+  st_join(stock)
+
+stock_unaffected_by_development <- stock %>% filter(!(id_stock %in% flow_with_stock$id_stock))
+stock_affected_by_development   <- stock %>% filter(  id_stock %in% flow_with_stock$id_stock)
+
+unique_flows <- unique(flow_with_stock$id_flow)
+unique_stock <- unique(flow_with_stock$id_stock)
+
+check_intersection <- function(x){
+#  x =50
+  
+
+stock_flow_filtered <-   flow_with_stock[x,]
+
+stock_filtered <- stock[stock_flow_filtered$id_stock,]
+output  <- tibble(stock_area = st_area(stock_filtered),
+                 overlap_area = st_area(st_intersection(stock_flow_filtered$geometry,stock_filtered$geometry)),
+                 flow_area = st_area(stock_flow_filtered)) %>% 
+  bind_cols(stock_flow_filtered)
+# leaflet() %>% addTiles() %>% addPolygons(data = stock_filtered) %>% addPolygons(data = stock_flow_filtered)
+
+return(output)
+}
+
+
+stock_flow_overlap <- map_df(seq(1:nrow(flow_with_stock)),check_intersection,.progress = T)
+
+
+
+# There's a few situations
+
+# 1) development on one property. Easy! Merge. 
+# 2) big property in stock is subdivided into little flow - potentially with land leftover
+# 3) A small number of properties in stock are consolidated to build one big property
+# 4) A large number of properties in stock are in one 'project' even though they'll end up being detached/townhouses when finished. 
+
+
+test <- stock_flow_overlap %>% 
+  mutate(size_type = case_when(between(flow_area,
+                                          stock_area * .8,
+                                          stock_area * 1.2) ~ "similar", # Good outcome!
+                                  flow_area <= (stock_area * .8) ~ "big stock", #This is due to a subdivision - and we should take the new values
+                                  flow_area >= (stock_area * 1.2) ~ "big flow"), # This is where there's been an amalgamation. 
+        stock_overlap = case_when(stock_area < overlap_area * 1.1 ~ "large",
+                                                                T ~ "small"),
+        flow_overlap  = case_when(flow_area < overlap_area * 1.1 ~ "large",
+                                                               T ~ "small")) %>% 
+  group_by(id_flow) %>% 
+  mutate(solution = case_when(size_type == "similar" & 
+                                stock_overlap == "large" &
+                                flow_overlap == "large" ~ "one-to-one-join",
+         size_type == "big stock" & 
+         stock_overlap == "large" &
+         flow_overlap == "large" ~ "one-to-many-join"
+         ),
+         consolidation_number = if_else(n()>5,"lots","not many"))
+
+test%>%
+  group_by(size_type,flow_overlap,stock_overlap,solution,consolidation_number) %>% 
+  summarise(n=n()) %>% 
+  spread(size_type,n)
+
+ weird_outcomes <- test %>% 
+  st_as_sf() %>%
+  filter(size_type == "big flow",
+         flow_overlap == "small",
+         stock_overlap == "large",
+         consolidation_number == "lots") 
+ 
+ weirdest <- test %>% filter(id_flow == 289) 
+ 
+stock %>% 
+  filter(id_stock %in% weirdest$id_stock) %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addPolygons(fillColor =  "yellow",opacity = .3,label = ~id_stock) 
+
+%>% 
+  addPolygons(data = weird_outcomes,fillColor = "green",opacity = .3)
+
+s
+test %>% 
+
+flow_with_stock_geoms_both <- flow_with_stock %>%  
+                              left_join(stock %>% select(id_stock, stock_geometry = geometry), 
+                                        by = "id_stock")
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -152,9 +257,9 @@ flow_self_intersects <- st_join(flow_smaller_buffered,
 #Or gets turned into a park instead of private property etc. 
 
 flow_ids_to_delete <- flow_self_intersects %>% 
-                       mutate(id_delete = case_when( (development_year.x == development_year.y) & (lotsize.x < lotsize.y) ~ id_flow.x, 
-                                                     (development_year.x == development_year.y) & (lotsize.y < lotsize.x) ~ id_flow.y, 
-                                                     development_year.x < development_year.y                              ~ id_flow.x,
+                       mutate(id_delete = case_when( (year_development.x == year_development.y) & (lotsize.x < lotsize.y) ~ id_flow.x, 
+                                                     (year_development.x == year_development.y) & (lotsize.y < lotsize.x) ~ id_flow.y, 
+                                                     year_development.x < year_development.y                              ~ id_flow.x,
                                                      T                                            ~ id_flow.y)) %>% 
   distinct(id_delete) %>% 
   pull(id_delete)
@@ -190,11 +295,11 @@ flow_contains_1_no_geo_raw <- flow_since_2016 %>%
 #Some 'redevelopments' are clearly greenfield subdivisions where the flow sees one development but it's clear they're townhouses
 # since there are 100 properties in stock but one big property in flow. 
 
-flow_to_delete_post_2016 <- flow_contains_1_no_geo_raw %>% 
+flow_to_delete_post_2016 <- flow_contains_1_no_geo %>% 
   group_by(id_flow) %>% 
-  mutate(new_minimum = case_when(first(development_dwellings_total)*1.2 >= n() ~ pmax(tlresdwng,1),
+  mutate(new_minimum = case_when(first(dwellings_total_new)*1.2 >= n() ~ pmax(tlresdwng,1),
                                  T ~tlresdwng)) %>% 
-  summarise(new = first(development_dwellings_total),
+  summarise(new = first(dwellings_total_new),
             existing = sum(new_minimum),
             properties = n()) %>% 
   filter(properties >5 & (new-5)*.7 < existing) %>%  # filter to where there aren't too many new properties and where amalgation of more than 5 properties is unlikely. 
@@ -209,7 +314,7 @@ flow_contains_1_no_geo <- flow_contains_1_no_geo_raw %>%
 flow_contains_1 <- flow_since_2016 %>% 
                    right_join(flow_contains_1_no_geo) %>% 
                    group_by(id_flow) %>% 
-                   arrange(desc(development_dwellings_total)) %>% 
+                   arrange(desc(dwellings_total_new)) %>% 
                    summarise(across(everything(), first)) %>% 
   mutate(id_stock_former = id_stock,
          id_stock = paste(id_flow,"amalgamation_of_",
@@ -231,7 +336,7 @@ flow_subdivision_2_no_geo <- flow_since_2016 %>%
                          st_transform(crs = 7855) %>% #move from an arc crs to a meter one. 
                          st_buffer(dist = -1.5) %>% 
                          st_join(stock %>% 
-                                   filter(!(id_stock %in% flow_contains_1_no_geo$id_stock)) %>% 
+                                   filter(!(id_stock %in% stock_subsumed_1)) %>% 
                                    st_transform(crs = 7855) %>% 
                                    select(-address), 
                                    left = FALSE) %>% 
@@ -242,7 +347,7 @@ stock_subsumed_2 <- unique(flow_subdivision_2_no_geo$id_stock)
 flow_subdivision_2 <- flow_since_2016 %>% 
                       right_join(flow_subdivision_2_no_geo) %>% 
                       group_by(id_flow) %>% 
-                      arrange(desc(development_dwellings_total)) %>% 
+                      arrange(desc(dwellings_total_new)) %>% 
                       summarise(across(everything(), first)) %>% 
                       mutate(id_stock_former = id_stock,
                              id_stock = paste(id_flow,"subdivided_from_",
@@ -303,27 +408,29 @@ stock_with_flow$lon <- round(st_coordinates(coordinates)[,1],5)
 stock_with_flow$lat <- round(st_coordinates(coordinates)[,2],5)
 
 stock_with_flow_clean_names <- stock_with_flow %>% 
-  arrange(desc(development_dwellings_total)) %>% 
+  arrange(desc(dwellings_total_new)) %>% 
   group_by(lat,lon) %>% 
   filter(n() == 1) %>% 
   rename(vacant_in_2016 = vacant,
-         development_id_flow = id_flow,
-         development_id_stock_former = id_stock_former,
-         development_data_type = status,
+         dev_status = status,
+         dev_id_flow = id_flow,
+         dev_height_storeys = height_storeys,
+         dev_project_name = projname,
+         dev_id_stock_former = id_stock_former,
+         dev_year = year_development,
+         dev_dwellings_total_new = dwellings_total_new,
          dwellings_in_2016 = tlresdwng) %>% 
   select(-c(lotsize)) %>% 
   ungroup() %>% 
-  rename_with(~ gsub("development", "dev", .x)) %>% #Annoying that the first n characters of a shape file can't be duplicated - so need to shorten stems. 
-  rename_with(~ gsub("dwellings", "dwlgs", .x)) %>% 
-  rename_with(~ gsub("project", "prj", .x)) %>% 
-  mutate(dwellings_est = coalesce(dev_dwlgs_total,dwlgs_in_2016),
+  mutate(dwellings_est = coalesce(dev_dwellings_total_new,dwellings_in_2016),
          lot_size = as.numeric(st_area(geometry)))
   
 
-sort(names(stock_with_flow_clean_names))
+
 
 
 #Output as a shapefile
+
 stock_with_flow_clean_names %>% write_sf("Melbourne_dwellings.shp")
 
 
