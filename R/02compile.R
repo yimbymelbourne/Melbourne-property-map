@@ -84,14 +84,13 @@ capitalize_after_underscore <- function(s) {
   return(s)
 }
 
-# Custom function to capitalize the first letter of each word
 capitalize_first_letter <- function(x) {
   sapply(x, function(word) {
-    paste0(toupper(substring(word, 1, 1)), tolower(substring(word, 2)))
+    # Capitalize only the first letter, leave the rest unchanged
+    paste0(toupper(substring(word, 1, 1)), substring(word, 2))
   }, USE.NAMES = FALSE)
 }
-
-dwelling_data_clean %>% st_drop_geometry() %>% write_csv("Melbourne dwelling data.csv")
+dwelling_data_clean %>% st_drop_geometry() %>% write_csv("working_data/Melbourne dwelling data.csv")
 
 
 #Sf requires short variable names which is very frustrating! 
@@ -135,8 +134,6 @@ cols <- tibble(long_col_name = names(dwelling_data_clean)) %>%
         shp_file_col_name_short = str_replace(shp_file_col_name_short,"Geometry","geometry"),
         shp_file_col_name_short = str_replace(shp_file_col_name_short,"Lat","lat"),
         shp_file_col_name_short = str_replace(shp_file_col_name_short,"Lon","lon"),
-        
-        
         length =nchar(shp_file_col_name_short)) %>% 
   arrange(desc(length))
 rename_vector <- setNames(cols$long_col_name,cols$shp_file_col_name_short)
@@ -147,11 +144,11 @@ dwellings_for_shape <- dwelling_data_clean %>%
   rename(!!! rename_vector[rename_vector %in% names(.)])
 
 dwellings_for_shape %>% 
-  write_sf("Melbourne dwelling data.shp",quiet = FALSE)
+  write_sf("working_data/Melbourne dwelling data.shp",quiet = FALSE)
 dwellings_for_shape %>% select(lat,
                                lon) %>% 
   write_sf("working_data/Melbourne Dwelling Data geometry_only.shp")
 
 #write col lookup table for data dictionary
 
-write_csv(cols %>% filter(shp_file_col_name_short %in% names(dwellings_for_shape)), "working_data/shp_file_column_lookup.csv")
+write_csv(cols %>% filter(shp_file_col_name_short %in% names(dwellings_for_shape)), "readme_files/shp_file_column_lookup.csv")

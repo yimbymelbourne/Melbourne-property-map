@@ -35,7 +35,7 @@ tibble(col_name = col_names) %>% write_csv("working_data/col_names.csv")
 #Once info is entered.... 
 metadata <- read_csv("readme_files/data_dictionary.csv") %>%
   filter(col_name != "geometry") %>% 
-  left_join(read_csv("working_data/shp_file_column_lookup.csv") %>% rename(col_name = long_col_name) )
+  left_join(read_csv("readme_files/shp_file_column_lookup.csv") %>% rename(col_name = long_col_name) )
 
 
 my_informant <- create_informant(codebook_data) %>% 
@@ -52,8 +52,8 @@ my_informant <- create_informant(codebook_data) %>%
  <li>Where redevelopment since 2016 has subdivided or consolidated the land, the new properties replace the older properties in the data</li>
  </ol>",
     `Other data sources` =  "Data has also been added from the heritage register, zoning, overlays, distance to public transport (including walking distance), and traffic pollution",
-    Updates = "Updated yearly when the UDP program flow data is updated",
-    `GitHub repo` = "[Sample Data GitHub repository](https://github.com/smach/SampleData)"
+    Updates = "Updated ~yearly when the UDP program flow data is updated",
+    `GitHub repo` = "[Melbourne Dwelling Map](https://github.com/jonathananolan/Melbourne-dwelling-map"
   )
 
 for (i in 1:nrow(metadata)) {
@@ -132,5 +132,6 @@ for (i in 1:nrow(metadata)) {
   }
 
 my_informant %>% 
+  get_informant_report(title = "Melbourne dwelling map data dictionary") %>% 
 export_report("codebook.html") 
 
