@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+
+</head>
+<body>
+<div id="pb_information" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#pb_information table {
+  font-family: 'IBM Plex Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pb_information thead, #pb_information tbody, #pb_information tfoot, #pb_information tr, #pb_information td, #pb_information th {
+  border-style: none;
+}
+
+#pb_information p {
+  margin: 0;
+  padding: 0;
+}
+
+#pb_information .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 130%;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 650px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pb_information .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pb_information .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pb_information .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pb_information .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pb_information .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pb_information .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pb_information .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pb_information .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pb_information .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pb_information .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pb_information .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pb_information .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pb_information .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pb_information .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pb_information .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pb_information .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pb_information .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pb_information .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pb_information .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pb_information .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pb_information .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pb_information .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pb_information .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pb_information .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pb_information .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pb_information .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pb_information .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pb_information .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pb_information .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pb_information .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pb_information .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pb_information .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pb_information .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pb_information .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pb_information .gt_left {
+  text-align: left;
+}
+
+#pb_information .gt_center {
+  text-align: center;
+}
+
+#pb_information .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pb_information .gt_font_normal {
+  font-weight: normal;
+}
+
+#pb_information .gt_font_bold {
+  font-weight: bold;
+}
+
+#pb_information .gt_font_italic {
+  font-style: italic;
+}
+
+#pb_information .gt_super {
+  font-size: 65%;
+}
+
+#pb_information .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pb_information .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pb_information .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pb_information .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pb_information .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pb_information .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pb_information .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pb_information {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .15px;
+}
+
+#pb_information a {
+  color: #375F84;
+  text-decoration: none;
+}
+
+#pb_information a:hover {
+  color: #375F84;
+  text-decoration: underline;
+}
+
+#pb_information p {
+  overflow: visible;
+  margin-top: 2px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 5px;
+}
+
+#pb_information ul {
+  list-style-type: square;
+  padding-left: 25px;
+  margin-top: -4px;
+  margin-bottom: 6px;
+}
+
+#pb_information li {
+  text-indent: -1px;
+}
+
+#pb_information h4 {
+  font-weight: 500;
+  color: #444444;
+}
+
+#pb_information code {
+  font-family: 'IBM Plex Mono', monospace, courier;
+  font-size: 90%;
+  font-weight: 500;
+  color: #666666;
+  background-color: transparent;
+  padding: 0;
+}
+
+#pb_information .pb_date {
+  text-decoration-style: solid;
+  text-decoration-color: #9933CC;
+  text-decoration-line: underline;
+  text-underline-position: under;
+  font-variant-numeric: tabular-nums;
+  margin-right: 4px;
+}
+
+#pb_information .pb_label {
+  border: solid 1px;
+  border-color: inherit;
+  padding: 0px 3px 0px 3px;
+}
+
+#pb_information .pb_label_rounded {
+  border: solid 1px;
+  border-color: inherit;
+  border-radius: 8px;
+  padding: 0px 8px 0px 8px;
+}
+
+#pb_information .pb_sub_label {
+  font-size: smaller;
+  color: #777777;
+}
+
+#pb_information .pb_col_type {
+  font-size: 75%;
+}
+
+#pb_information .gt_sourcenote {
+  height: 35px;
+  font-size: 60%;
+  padding: 0;
+}
+
+#pb_information .gt_group_heading {
+  text-indent: -3px;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="1" class="gt_heading gt_title gt_font_normal" style="color: #444444; font-size: 28px; text-align: left; font-weight: 500;">Pointblank Information</td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="1" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;"><span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2024-02-06|15:55:52]</span></p>
+<div style="height:25px;margin-top:10px;"><span style="background-color:#F1D35A;color:#222222;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">tibble</span>
+<span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">codebook_data</span><span style="background-color:#eecbff;color:#333333;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #eecbff;padding:2px 15px 2px 15px;font-size:smaller;">Rows</span>
+<span style="background-color:none;color:#333333;padding:0.5em 0.5em;position:inherit;margin:5px 0px 5px -4px;font-weight:bold;border:solid 1px #eecbff;padding:2px 15px 2px 15px;font-size:smaller;">1,805,315</span>
+<span style="background-color:#BDE7B4;color:#333333;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 1px;font-weight:bold;border:solid 1px #BDE7B4;padding:2px 15px 2px 15px;font-size:smaller;">Columns</span>
+<span style="background-color:none;color:#333333;padding:0.5em 0.5em;position:inherit;margin:5px 0px 5px -4px;font-weight:bold;border:solid 1px #BDE7B4;padding:2px 15px 2px 15px;font-size:smaller;">65</span></div>
+</td>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="1" class="gt_group_heading" style="color: #444444; font-weight: 500; text-transform: uppercase; background-color: #FCFCFC; border-bottom-width: 1; border-bottom-style: solid; border-bottom-color: #EFEFEF;" scope="col" id="Table">Table</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Table  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><h4 id="description" style="margin-bottom:5px;">DESCRIPTION</h4>
+<p>This project provides a map of every physical piece of land in Melbourne, with an estimate of how many residential dwellings are on each site. It also includes information on how many new dwellings have been constructed on the site since 2016. The data is provided as R code which makes a shapefile for use in mapping software such as QGIS. The file is reproducible using R.</p>
+</div></td></tr>
+    <tr><td headers="Table  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><h4 id="creation-of-dwelling-number-information" style="margin-bottom:5px;">CREATION OF DWELLING NUMBER INFORMATION</h4>
+<p>The Department released a list of every piece of physical land in 2016 (stock), as well as physical land with new dwellings from 2016 to 2022 (flow).
+<br><br>Because the department releases the data in yearly files, it’s not simple to bring them together into a single view of what housing stock there is in 2022. Some lots get subdivided, consolidated, or developed more than once.
+<br><br>The cleaning process in the file aims to keep a row for each piece of physical land in Melbourne, with information about it’s most recent development.
+<br><br>To do this we start with the 2016 ‘stock’ map of Melbourne and complete the following steps with the ‘flow’ data:
+<br><br></p>
+<ol>   
+<li>Only the most recent redevelopment on a piece of land is considered.</li>
+ <li>Where there has been no consolidation or subdivision of land since 2016, information about the development is joined to the stock data</li>
+ <li>Where redevelopment since 2016 has subdivided or consolidated the land, the new properties replace the older properties in the data</li>
+ </ol>
+</div></td></tr>
+    <tr><td headers="Table  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><h4 id="other-data-sources" style="margin-bottom:5px;">OTHER DATA SOURCES</h4>
+<p>Data has also been added from the heritage register, zoning, overlays, distance to public transport (including walking distance), and traffic pollution</p>
+</div></td></tr>
+    <tr><td headers="Table  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><h4 id="updates" style="margin-bottom:5px;">UPDATES</h4>
+<p>Updated yearly when the UDP program flow data is updated</p>
+</div></td></tr>
+    <tr><td headers="Table  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><h4 id="github-repo" style="margin-bottom:5px;">GITHUB REPO</h4>
+<p><a href="https://github.com/smach/SampleData">Sample Data GitHub repository</a></p>
+</div></td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="1" class="gt_group_heading" style="color: #444444; font-weight: 500; text-transform: uppercase; background-color: #FCFCFC; border-bottom-width: 1; border-bottom-style: solid; border-bottom-color: #EFEFEF;" scope="col" id="Columns">Columns</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lon</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Lon</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Longitude of centroid of land area</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> centroid of object in UDP</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Since this value is rounded to 5 decimals, occasionally there are duplicates (around 40 in the dataset). These are almost always annoyingly shaped driveways which should be excluded anyway because they are not suitable for development</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 145.1 <br>Median value: 145.1 <br>Maximum value: 146.2 <br>Minimum value: 144.4 <br>Standard deviation: 0.2 <br>NA: 0</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lat</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Lat</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Latitude of centroid of land area</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> centroid of object in UDP</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Since this value is rounded to 5 decimals, occasionally there are duplicates (around 40 in the dataset). These are almost always annoyingly shaped driveways which should be excluded anyway because they are not suitable for development</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: -37.9 <br>Median value: -37.8 <br>Maximum value: -37.4 <br>Minimum value: -38.5 <br>Standard deviation: 0.2 <br>NA: 0</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">id_stock</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Individual identifier of land area created by this repo</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> row_number of dataset from stock data in 2016, with extra info for occasions where the stock data has been changed.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">address</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Address</p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes blank if there is no address. Not clean.</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dwellings_est</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Dwlgest</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Best estimate for the number of dwellings that are currently on the piece of land</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> dev_dwlgs_total or if blank dwlgs_in_2016</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes greenfield projects are listed as one large “development” when they are actually lots of smaller lots. Ideally we’d split these up into the subdivided properties</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1.1 <br>Median value: 1 <br>Maximum value: 1424 <br>Minimum value: 0 <br>Standard deviation: 6.2 <br>NA: 0</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dwlgs_in_2016</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Dwlg</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of dwellings on site in 2016</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Urban Development Program Stock layer</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1 <br>Median value: 1 <br>Maximum value: 2207 <br>Minimum value: 0 <br>Standard deviation: 5 <br>NA: 323</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lot_size</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Lotsize</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> size of lot in square meters</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> st_area function</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 4582.3 <br>Median value: 578.9 <br>Maximum value: 267361109.9 <br>Minimum value: 0 <br>Standard deviation: 305569.2 <br>NA: 0</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zone_code</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Zonecode</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Full zoning code of property</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Extremely rarely more than one zone will cover the property in error. IN this case we pick the zone with the biggest overlap</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zone_short</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Zoneshort</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Name of zone in broad groups</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Grouping of zone codes into convenient types. “special development area” is a grouping of lots of different zones that tend to allow high density. (“DZ”,“CCZ”,“CDZ”,“MUZ”,“ACZ”,“PDZ”,“RGZ”)</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Civic land (n= 28,952 )<br>Commercial (n= 44,119 )<br>Commonwealth land (n= 253 )<br>General residential (n= 992,822 )<br>Greenfield (n= 43,855 )<br>Industrial (n= 48,455 )<br>Low density residential (n= 33,176 )<br>Neighbourhood residential (n= 476,768 )<br>Rural/regional (n= 48,257 )<br>Special development area (n= 88,658 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zone_category</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Zonecat</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> States if housing is permitted by zoning</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Housing is permitted in all the explicitely resi zones, the Commercial 1 zone and the Special development zones</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> C1Z is listed as allowing development but not C3Z which can sometimes allow development</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Housing not generally permitted (n= 213,891 )<br>Housing permitted (n= 1,591,424 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_overlay</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of heritage overlay if there is one</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> HO values are only unique within a council area. Extremely rarely more than one overlay will cover the property. In this case we pick the overlay with the biggest overlap</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_status</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Hestatus</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Level of heritage</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Contains every property that’s either zoned as HO by VICMAP or in the Victorian Heritage Database. Where the VHD provides the level of signficance this is provided.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Port Phillip data was emailed by council. Linked by lat/lon so not perfect - especially when councils have one entry in the Victorian Heritage Database for a whole area of heritage.</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> No heritage (n= 1,665,181 )<br>Overlay - Contributory (n= 24,759 )<br>Overlay - Not Signficant (n= 5,902 )<br>Overlay - Significant (n= 18,380 )<br>Overlay - Type of Listing Not Recorded (n= 89,996 )<br>Victorian Heritage Register (n= 1,097 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_db_id</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Hedbid</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Victorian Heritage ID where it is available. You can visit the site of the ID by replacing the ID in this URL: <a href="https://vhd.heritagecouncil.vic.gov.au/places/13584">https://vhd.heritagecouncil.vic.gov.au/places/13584</a></p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://vhd.heritagecouncil.vic.gov.au'>Victorian Heritage database</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Linked by lat/lon so not perfect - especially when councils have one entry in the Victorian Heritage Database for a whole area of heritage.</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Heritage</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> T/F if there is any heritage</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Checks for any value in heritage_status</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 1,665,181 )<br>TRUE (n= 140,134 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">ddo</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Ddo</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of heritage overlay if there is one</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> DDO values are only unique within a council area. Extremely rarely more than one overlay will cover the property. In this case we pick the overlay with the biggest overlap</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">neighbourhood_character_overlay</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Nco</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of Neighbourhood Character Overlay if there is one</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> NCO values are only unique within a council area. Extremely rarely more than one overlay will cover the property. In this case we pick the overlay with the biggest overlap</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> NCO1 (n= 2,639 )<br>NCO10 (n= 82 )<br>NCO2 (n= 1,241 )<br>NCO3 (n= 843 )<br>NCO4 (n= 1,175 )<br>NCO5 (n= 760 )<br>NCO6 (n= 662 )<br>NCO7 (n= 554 )<br>NCO8 (n= 48 )<br>NCO9 (n= 100 )<br>NA (n= 1,797,211 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">feature_type_short</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Fetretype</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Presence of VICMAP feature or zoning category, where any civic facility is deemed not suitable for development</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Pulled from civic land zones as well as VICMAP Features of Interest such as parks, schools, hospitals and train stations.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Some civic facilities might be useful for development despite being grouped ‘not for development’ here - e.g. you could build on a train station car park.</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> developable land (n= 37,867 )<br>not developable land (n= 114,222 )<br>NA (n= 1,653,226 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">feature_type</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Ftrtype</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Presence of VICMAP feature</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Only includes information about VICMAP Features of Interest such as parks, schools, hospitals and train stations.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Some civic facilities might be useful for development despite being grouped ‘not for development’ here - e.g. you could build on a train station car park.</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> admin facility (n= 6 )<br>agricultural area (n= 2 )<br>commercial facility (n= 18,552 )<br>community space (n= 532 )<br>defence site (n= 183 )<br>dumping ground (n= 113 )<br>education centre (n= 10,158 )<br>emergency facility (n= 11 )<br>excavation site (n= 135 )<br>hospital (n= 554 )<br>landmark (n= 7 )<br>pipeline facility (n= 76 )<br>power facility (n= 225 )<br>recreational resource (n= 191 )<br>reserve (n= 97,118 )<br>residential building (n= 19,313 )<br>sport facility (n= 4,910 )<br>storage facility (n= 3 )<br>NA (n= 1,653,226 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_possible_desc</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Respossdes</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Is it possible to build more dwellings on this site?</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Checks if there is a feature of interest preventing development in feature_type_short, whether there is already a development on site from dwellings_est</p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Not all sites will be suitable - e.g. they could already have a massive commercial building on them. They could be driveways or other awkward sites.</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Already more than one property on this land (n= 35,582 )<br>Available for residential development (n= 1,655,511 )<br>Parks and civic facilities that aren’t typically developed on (n= 114,222 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_possible</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Resposs</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> binary of res_possible_desc</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 149,804 )<br>TRUE (n= 1,655,511 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_permitted_possible_desc</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Resperdes</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Is this land on a site that’s typically able to be built upon?</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> checks if it’s possible to build new homes on the site e.g. there isn’t already a feature of interest or other development on the site (res_possible == T) as well as whether zoning permits residential development (zone_category == “Available for residential development”)</p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Doesn’t consider zoning limits - e.g. You can’t build on small sites even if it’s permitted otherwise by the zoning</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Already more than one property on this land (n= 35,582 )<br>Available for residential development (n= 1,469,544 )<br>Parks and civic facilities that aren’t typically developed on (n= 114,222 )<br>Zoning usually prevents dwelling construction (n= 185,967 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_permitted_possible</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Resper</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> binary of res_permitted_possible_desc</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 335,771 )<br>TRUE (n= 1,469,544 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_time_s_bus</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest bus (seconds)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 295.5 <br>Median value: 236 <br>Maximum value: 12774.9 <br>Minimum value: 0.1 <br>Standard deviation: 250.1 <br>NA: 37189</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_time_s_tram</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest tram (seconds)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 517.5 <br>Median value: 401.4 <br>Maximum value: 3896.1 <br>Minimum value: 0.2 <br>Standard deviation: 385.1 <br>NA: 1428499</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_time_s_train</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest train (seconds)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 861.3 <br>Median value: 846.3 <br>Maximum value: 5975 <br>Minimum value: 0.2 <br>Standard deviation: 387 <br>NA: 973246</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_time_s_brt</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest brt (seconds)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Only BRT is Doncaster bus line park and rides. Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1021.1 <br>Median value: 1054.1 <br>Maximum value: 2376.2 <br>Minimum value: 61.6 <br>Standard deviation: 343.9 <br>NA: 1794490</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_dist_m_bus</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pwkmbus</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest bus (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 410.4 <br>Median value: 327.8 <br>Maximum value: 17743.1 <br>Minimum value: 0.1 <br>Standard deviation: 347.4 <br>NA: 37189</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_dist_m_tram</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pwkmtram</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest tram (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 718.7 <br>Median value: 557.5 <br>Maximum value: 6228.8 <br>Minimum value: 0.2 <br>Standard deviation: 534.9 <br>NA: 1428499</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_dist_m_train</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pwkmtrain</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest train (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1196.3 <br>Median value: 1175.5 <br>Maximum value: 8298.7 <br>Minimum value: 0.3 <br>Standard deviation: 537.5 <br>NA: 973246</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_dist_m_brt</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Walking distance to nearest brt (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created using ORS instance and public transport database from PTV</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1418.2 <br>Median value: 1464.1 <br>Maximum value: 3300.4 <br>Minimum value: 85.5 <br>Standard deviation: 477.6 <br>NA: 1794490</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_dist_m_bus</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pmbus</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Crow-flies distance to nearest bus (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created from PTV API</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 270 <br>Median value: 208 <br>Maximum value: 1999.9 <br>Minimum value: 0.2 <br>Standard deviation: 229.2 <br>NA: 28742</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_dist_m_tram</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pmtram</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Crow-flies distance to nearest tram (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created from PTV API</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 689 <br>Median value: 511.4 <br>Maximum value: 2000 <br>Minimum value: 3.3 <br>Standard deviation: 552.3 <br>NA: 1373506</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_dist_m_train</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pmtrain</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Crow-flies distance to nearest train (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created from PTV API</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1036.5 <br>Median value: 1010.1 <br>Maximum value: 2000 <br>Minimum value: 1.5 <br>Standard deviation: 497 <br>NA: 741386</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_dist_m_brt</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Crow-flies distance to nearest brt (meters)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Only BRT is Doncaster bus line park and rides.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/'>PTV API</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Distances only provided reliably if crow-flies distance is &lt;1.5km</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1310.6 <br>Median value: 1361 <br>Maximum value: 2000 <br>Minimum value: 59.5 <br>Standard deviation: 458.7 <br>NA: 1787258</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">traffic_pollution</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Pollution</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Measure of how many traffic fumes and noise this property might experience relative to other properties in the dataset</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Created from database of traffic on major roads. Uses decay function of fumes related to distance from road as per this NBER paper: <a href="https://www.nber.org/system/files/working_papers/w15413/w15413.pdf">https://www.nber.org/system/files/working_papers/w15413/w15413.pdf</a></p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://vicroadsopendata-vicroadsmaps.opendata.arcgis.com/datasets/traffic-volume'>DTP Traffic Volume Dataset</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> EXPERIMENTAL. Not happy with results as they stand</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 0.1 <br>Median value: 0 <br>Maximum value: 4.6 <br>Minimum value: 0 <br>Standard deviation: 0.3 <br>NA: 596</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">vacant_in_2016</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Was the property vacant in 2016</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='NA'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> non-vacant properties could have large non residential buildings in them and still have 0 dwellings</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> No (n= 1,744,700 )<br>Yes (n= 60,292 )<br>NA (n= 323 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">under_const_in_2016</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Was the property undergoing construction in the stock dataset in 2016</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Stock dataset from 2016</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Only most recent development for a site included.</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> No (n= 1,795,130 )<br>Yes (n= 10,185 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_id_flow</code>  <code class="pb_col_type">integer</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> id of any development on this site</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> row number of dataset created by this repo</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1585 <br>Median value: 1582 <br>Maximum value: 3184 <br>Minimum value: 1 <br>Standard deviation: 917.2 <br>NA: 1802154</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_prj_id</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> UDP id number</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_year</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Yea development finished</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Year the development was completed. If blank could be the most recent year of the data</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> 0 (n= 471 )<br>2016 (n= 828 )<br>2017 (n= 481 )<br>2018 (n= 333 )<br>2019 (n= 299 )<br>2020 (n= 233 )<br>2021 (n= 298 )<br>2022 (n= 218 )<br>NA (n= 1,802,154 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_data_source_year</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Most recent year of UDP flow data in which this development apears</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> All “flow” data from developments are sourced from the most recent year of the dataset where that development appears</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> 2016 (n= 208 )<br>2017 (n= 624 )<br>2018 (n= 477 )<br>2019 (n= 333 )<br>2020 (n= 302 )<br>2021 (n= 233 )<br>2022 (n= 984 )<br>NA (n= 1,802,154 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_dwlgs_total</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of homes on development site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Only included for developments &gt;10 untis, so any development &lt;10 units since 2016 is not in this dataset</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 60.4 <br>Median value: 24 <br>Maximum value: 1424 <br>Minimum value: 0 <br>Standard deviation: 111.6 <br>NA: 1802154</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_dwlgs_townhouses</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of townhouses on development site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes not included</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 7.9 <br>Median value: 0 <br>Maximum value: 406 <br>Minimum value: 0 <br>Standard deviation: 21.7 <br>NA: 1802362</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_dwlgs_unknown_type</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of dwellings on development site of unknown type</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes not included</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 0.9 <br>Median value: 0 <br>Maximum value: 500 <br>Minimum value: 0 <br>Standard deviation: 13 <br>NA: 1803346</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_dwlgs_apartments</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of apartments on development site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes not included</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 48.3 <br>Median value: 16 <br>Maximum value: 1424 <br>Minimum value: 0 <br>Standard deviation: 109.3 <br>NA: 1802362</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_dwlgs_detached</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of houses on development site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes not included</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 3.1 <br>Median value: 0 <br>Maximum value: 625 <br>Minimum value: 0 <br>Standard deviation: 22.5 <br>NA: 1802362</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_prj_name_part</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Project name for this stage/section of any development on site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes not included</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_prj_name</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Project name for any development on site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_height_storeys</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Height of tallest building on development site</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 5.8 <br>Median value: 3 <br>Maximum value: 100 <br>Minimum value: 0 <br>Standard deviation: 8.5 <br>NA: 1802398</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_status</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Has the most recent development on the site finished</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Completed (n= 2,690 )<br>Under Construction (n= 471 )<br>NA (n= 1,802,154 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_id_stock_former</code>  <code class="pb_col_type">integer</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Where land has been subdivided or consolidated, what was the original stock id that this piece of land came from</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 943472.9 <br>Median value: 1264409 <br>Maximum value: 1806468 <br>Minimum value: 1 <br>Standard deviation: 728919.9 <br>NA: 1801831</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dev_data_type</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Is this property created by this repo?</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Where there is a development that only occurs on part of a property on the ‘stock’ layer - this is the leftover property. Often this is an error.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> leftover land from a development (n= 323 )<br>NA (n= 1,804,992 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">rn</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label"></strong></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lga_name_2022</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Lgan2022</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">postcode_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Postc</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">suburb_name_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Suburbn</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">ced_name_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Commonwealth electoral division</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sed_name_2022</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Sedn2022</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> State electoral division</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa1_code_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Sa1c</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa2_code_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa2_name_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa3_code_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa3_name_2021</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa4_code_2021</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> 203 (n= 25 )<br>204 (n= 341 )<br>205 (n= 1 )<br>206 (n= 160,167 )<br>207 (n= 140,144 )<br>208 (n= 162,438 )<br>209 (n= 207,522 )<br>210 (n= 145,150 )<br>211 (n= 222,579 )<br>212 (n= 313,577 )<br>213 (n= 289,269 )<br>214 (n= 164,068 )<br>NA (n= 34 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">sa4_name_2021</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Sa4n</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Geelong (n= 25 )<br>Hume (n= 341 )<br>Latrobe - Gippsland (n= 1 )<br>Melbourne - Inner (n= 160,167 )<br>Melbourne - Inner East (n= 140,144 )<br>Melbourne - Inner South (n= 162,438 )<br>Melbourne - North East (n= 207,522 )<br>Melbourne - North West (n= 145,150 )<br>Melbourne - Outer East (n= 222,579 )<br>Melbourne - South East (n= 313,577 )<br>Melbourne - West (n= 289,269 )<br>Mornington Peninsula (n= 164,068 )<br>NA (n= 34 )</p>
+</div></td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="1"><span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2024-02-06 15:55:55 EST</span>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;margin:5px 1px 5px 0;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">&lt; 1 s</span>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2024-02-06 15:55:56 EST</span></td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+</body>
+</html>
