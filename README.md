@@ -1,7 +1,6 @@
 
 Victoria has [Mapshare](https://mapshare.vic.gov.au/vicplan/) and
-[Digital
-Twin](https://www.land.vic.gov.au/maps-and-spatial/digital-twin-victoria)
+[DigitalTwin](https://www.land.vic.gov.au/maps-and-spatial/digital-twin-victoria)
 for looking at zoning and overlays for individual properties, but doing
 policy analysis on these website can be challenging. Useful information
 is dispersed across a multitude of files and a complex set of joins is
@@ -26,10 +25,12 @@ download the CSV file and make a summary in just a few lines of code:
 If you just want the data you can download it
 [here](https://drive.google.com/drive/folders/1wxzX66pj2BIfTIbev0Z7bVJcj1SomiZk?usp=sharing).
 
-Your first step should be to download these two files:
+Your first step should be to download any of these files:
 
+- “Melbourne dwelling data.gpkg” - A GeoPackage file, containing one row
+  for each piece of land in Melbourne.
 - “Melbourne dwelling data.csv” - A CSV file, containing one row for
-  each piece of land in Melbourne
+  each piece of land in Melbourne.
 - “Melbourne Dwelling Data geometry_only.shp” A shape file that contains
   the geometries that link to the csv file through id variables lat and
   lon
@@ -37,11 +38,6 @@ Your first step should be to download these two files:
 The files can be analysed in any GIS software such as ARCGIS, FELT, QGIS
 etc. If you aren’t interested in maps, you can analyse the CSV files in
 R, Python or any other statistical package.
-
-If you are unsure how to join together the CSV and shapefile, you can
-instead use the file “Melbourne dwelling data.shp” which has every
-variable. This is not recommended because the file is huge, and because
-.shp requires columns to have short names that can be quite confusing.
 
 # Understand the data
 
@@ -63,10 +59,24 @@ the /R folder and edit the 02.compile.R file to add it in.
 
 # Other data sources
 
-- If you want to understand current dwelling density at a more
-  aggregated level - consider the census.
-- If you want to measure the flow of recent developments, consider
-  importing the ‘flow’ data without looking at the stock data.
-- Building approvals data are also released at a street level.
-- The Valuer General has statistics about land values which includes
-  dwelling type, but this data is not available through opendata.
+- The [Urban Development
+  Program](https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program)
+  has data on each development since 2006. This repo has the most recent
+  flow data from any project in the UDP from 2016 onwards, but a
+  separate file is available from the UDP that has pre-2016 data.
+- The [VBA](https://www.vba.vic.gov.au/about/data) releases building
+  permit approvals at a street level.
+- The [Valuer
+  General](https://www.land.vic.gov.au/valuations/resources-and-reports/property-sales-statistics)
+  has statistics about land values which includes dwelling type, but
+  this data is sold to private providers and is only made available on
+  request to academics or in a very summarised form.
+- The state releases data on advertised
+  [rents](https://github.com/yimbymelbourne/rental_report_cleaner) and
+  house prices on a suburb level here
+- The
+  [ABS](https://www.abs.gov.au/statistics/industry/building-and-construction/estimated-dwelling-stock/latest-release)
+  releases dwelling changes at a SA2 level.
+- Each [census tablebuilder](https://tablebuilder.abs.gov.au/) product
+  has dwelling counts that can be divided by the usual tablebuilder
+  variables.

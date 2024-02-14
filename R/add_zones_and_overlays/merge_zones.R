@@ -15,7 +15,7 @@ WHERE NOT ST_IsValid(geoms);")
 sql_query <- 'CREATE INDEX ON vicmap_zones USING GIST (geoms);'
 dbExecute(con, sql_query)
 
-sql_query <- 'CREATE INDEX ON dwellings_urban_development_program USING GIST (geoms);'
+sql_query <- 'CREATE INDEX ON dwellings_urban_development_program USING GIST (geometry);'
 dbExecute(con, sql_query)
 
 dbExecute(con,"DROP TABLE IF EXISTS dwellings_udp_zones")
