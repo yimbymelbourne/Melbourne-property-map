@@ -18,7 +18,7 @@ SELECT
     d.lat, d.lon,
     v.neighbourhood_character_overlay
 FROM 
-    dwellings_urban_development_program d
+    dwellings_urban_development_program_buffered d
 LEFT JOIN LATERAL (
     SELECT 
         vicmap_nc_overlays.neighbourhood_character_overlay,

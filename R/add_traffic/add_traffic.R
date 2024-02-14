@@ -60,7 +60,8 @@ traffic_danger <- st_distance(traffic, properties[x,]) %>%
     select(-value) %>% 
     ungroup() %>% 
     filter(distance<1000 | distance == min(distance)) %>% #2km limit is somewhat arbitrary but reasonable. 
-    mutate(traffic_risk = 1/(exp(1)^(distance/50))) %>% #This shape of curve is a bit off tbh
+    mutate(traffic_risk_exponent = TWO_WAY_AA/(exp(1)^(distance/50)),
+           traffic_risk = TWO_WAY_AA/traffic_risk_exponent) %>% #This shape of curve is a bit off tbh
     mutate(lat = properties[x,]$lat,
            lon = properties[x,]$lon) 
 return(traffic_danger)

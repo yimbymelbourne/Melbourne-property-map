@@ -1,6 +1,7 @@
 
 source("R/00renv.R")
 dbExecute(con, paste0("DROP TABLE IF EXISTS dwelling_data_clean"))
+dbExecute(con, paste0("DROP TABLE IF EXISTS dwelling_data_temp"))
 
 tbl(con,"dwellings_udp_unique") %>% 
   left_join(tbl(con,"dwellings_udp_poi")) %>% 
@@ -12,23 +13,22 @@ tbl(con,"dwellings_udp_unique") %>%
   left_join(tbl(con,"traffic_pollution_aggregated")) %>% 
   left_join(tbl(con,"heritage_data_aggregated")) %>% 
   left_join(tbl(con,"asgs")) %>% 
-  mutate(feature_type = if_else(!is.na(feature_type) & zone_category == "Civic land","Civic land",feature_type), #If the POI database doesn't have a POI like a park or school, but it's zoned park or school etc - we probably still can't build homes here. 
-         feature_type_short = if_else(feature_type == "Civic land","not developable land",feature_type_short),
+  mutate(feature_type = case_when(!is.na(feature_type) ~ feature_type,
+                                  zone_short == "Civic land" ~ "Civic land",
+                                  is.na(feature_type) ~ "No feature"),
+         feature_type_short = case_when(!is.na(feature_type_short) ~ feature_type_short,
+                                        zone_short == "Civic land" ~ "not developable land",
+                                        is.na(feature_type_short) ~ "developable land"),
+         feature_preventing_development = case_when(feature_type_short == "not developable land" ~ T,
+                                                    feature_type == "Civic land" ~ T,
+                                                    is.na(feature_type_short) ~ F,
+                                                    feature_type_short == "developable land" ~ F,
+                                                    T ~ F),
          dwellings_est = coalesce(dwellings_est, 0),
          heritage_status = case_when(!is.na(heritage_db_id)   ~ heritage_status,
                                      !is.na(heritage_overlay) ~ "Overlay - Type of Listing Not Recorded",
                                      T ~ "No heritage"),
-         heritage = !(heritage_status == "No heritage"),
-         res_possible_desc = case_when(feature_type_short == "not developable land"       ~ "Parks and civic facilities that aren't typically developed on",
-                                       dwellings_est       > 1                           ~ "Already more than one property on this land",
-                                       T ~ "Available for residential development"),
-         res_possible = (res_possible_desc == "Available for residential development"),
-         res_permitted_possible_desc = case_when(feature_type_short == "not developable land"       ~ "Parks and civic facilities that aren't typically developed on",
-                                                 dwellings_est       > 1                            ~ "Already more than one property on this land",
-                                                 zone_category == "Housing not generally permitted" ~ "Zoning usually prevents dwelling construction",
-                                                 T ~ "Available for residential development"),
-         res_permitted_possible = (res_permitted_possible_desc == "Available for residential development")
-         )%>%
+         heritage = !(heritage_status == "No heritage")) %>%
   compute(name = "dwelling_data_temp", temporary = TRUE)  
 
 
@@ -63,6 +63,8 @@ dbExecute(con, paste0("CREATE TABLE dwelling_data_clean AS SELECT ", paste(new_o
 
 dwelling_data_clean <- read_sf(con,
                 "dwelling_data_clean") 
+dwelling_data_clean %>% st_drop_geometry() %>% count(feature_type,feature_type_short,feature_preventing_development)
+
 
 # Function to capitalize letters following underscores and then remove underscores
 capitalize_after_underscore <- function(s) {
@@ -144,10 +146,14 @@ dwellings_for_shape <- dwelling_data_clean %>%
   rename(!!! rename_vector[rename_vector %in% names(.)])
 
 dwellings_for_shape %>% 
-  write_sf("working_data/Melbourne dwelling data.shp",quiet = FALSE)
+  write_sf("output/Melbourne dwelling data.shp",quiet = FALSE)
+
+dwelling_data_clean %>% 
+st_write("output/Melbourne dwelling data.gpkg",append = F)
+
 dwellings_for_shape %>% select(lat,
                                lon) %>% 
-  write_sf("working_data/Melbourne Dwelling Data geometry_only.shp")
+  write_sf("output/Melbourne Dwelling Data geometry_only.shp")
 
 #write col lookup table for data dictionary
 

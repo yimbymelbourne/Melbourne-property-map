@@ -2,13 +2,13 @@
 
 source("R/00renv.R") #log into DB, load common packages
 
-dbExecute(con, "UPDATE dwellings_urban_development_program
+dbExecute(con, "UPDATE dwellings_urban_development_program_buffered
 SET geometry = ST_MakeValid(geometry)
 WHERE NOT ST_IsValid(geometry);")
 
 
 #Create indexes....
-dbExecute(con, 'CREATE INDEX ON dwellings_urban_development_program USING GIST (geometry);')
+dbExecute(con, 'CREATE INDEX ON dwellings_urban_development_program_buffered USING GIST (geometry);')
 
 
 ##DDOS
@@ -30,7 +30,7 @@ SELECT
     d.lat, d.lon,
     v.ddo
 FROM 
-    dwellings_urban_development_program d
+    dwellings_urban_development_program_buffered d
 LEFT JOIN LATERAL (
     SELECT 
         vicmap_ddos.ddo,

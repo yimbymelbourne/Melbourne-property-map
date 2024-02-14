@@ -24,7 +24,8 @@ zones <- zones %>% mutate(zone_short =  str_replace(zone_code, "[0-9]+$", ""),
                                                                    "PDZ",
                                                                    "RGZ") ~ "Special development area",
                                                  zone_short == "UGZ" ~ "Greenfield",
-                                                 substr(zone_short,1,1) =="B" ~ "Commercial",
+                                                 substr(zone_short,1,1) =="B" ~ "Special development area",#https://www.pc.gov.au/research/completed/vic-commercial-zoning/vic-commercial-zoning.pdf
+                                                 zone_code == "C1Z"~ "Housing permitted", #c1 replaced the B zones. 
                                                  substr(zone_short,1,1) =="C" ~ "Commercial",
                                                  substr(zone_short,1,1) %in% c("R","F") ~ "Rural/regional",
                                                  substr(zone_short,1,2) == "GW" ~ "Rural/regional",
@@ -39,7 +40,6 @@ zones <- zones %>% mutate(zone_short =  str_replace(zone_code, "[0-9]+$", ""),
                                                      "Special development area",
                                                      "Neighbourhood residential",
                                                      "Greenfield") ~ "Housing permitted",
-                                   zone_short == "C1Z"~ "Housing permitted",
                                    zone_short == "Rural/regional" ~ "Rural/regional",
                                    T ~ "Housing not generally permitted"))
                                                  

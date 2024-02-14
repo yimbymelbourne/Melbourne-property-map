@@ -18,7 +18,7 @@ SELECT
     d.lat, d.lon,
     v.heritage_overlay
 FROM 
-    dwellings_urban_development_program d
+    dwellings_urban_development_program_buffered d
 LEFT JOIN LATERAL (
     SELECT 
         vicmap_heritage_overlays.heritage_overlay,
@@ -34,4 +34,3 @@ LEFT JOIN LATERAL (
 "
 
 dbExecute(con, sql_query)
-print("run heritage overlays! ")
