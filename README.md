@@ -28,12 +28,12 @@ If you just want the data you can download it
 Your first step should be to download any of these files:
 
 - “Melbourne dwelling data.gpkg” - A GeoPackage file, containing one row
-  for each piece of land in Melbourne.
+  for each piece of land in Melbourne. This is the only file you need for most use cases (e.g. using R with SF)
 - “Melbourne dwelling data.csv” - A CSV file, containing one row for
-  each piece of land in Melbourne.
+  each piece of land in Melbourne. This is handy if you don't want to deal with maps. 
 - “Melbourne Dwelling Data geometry_only.shp” A shape file that contains
-  the geometries that link to the csv file through id variables lat and
-  lon
+  the property maps that link to the csv file through id variables lat and
+  lon. This file is a backup for some legacy software that doesn't have good support for GeoPackage files
 
 The files can be analysed in any GIS software such as ARCGIS, FELT, QGIS
 etc. If you aren’t interested in maps, you can analyse the CSV files in
