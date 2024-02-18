@@ -158,3 +158,14 @@ dwellings_for_shape %>% select(lat,
 #write col lookup table for data dictionary
 
 write_csv(cols %>% filter(shp_file_col_name_short %in% names(dwellings_for_shape)), "readme_files/shp_file_column_lookup.csv")
+
+
+#testing
+
+dwelling_data_clean %>% 
+  filter(heritage) %>%
+  st_drop_geometry() %>% 
+  group_by(lga_name_2022,heritage_status) %>% 
+  summarise(n=n()) %>% 
+  spread(heritage_status,n) %>% 
+  view()

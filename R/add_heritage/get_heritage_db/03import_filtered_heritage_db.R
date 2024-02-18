@@ -34,6 +34,7 @@ import_filtered_heritage_db <- function(){
   select(status,
          latitude,
          longitude,
+         address = addresses,
          id,
          heritage_authority_name) %>% 
   filter(!is.na(latitude)) %>% 

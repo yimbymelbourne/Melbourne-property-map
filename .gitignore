@@ -7,3 +7,8 @@
 /qgis
 /R/archive
 output
+test.dbf
+test.prj
+test.shp
+test.shx
+zone_types_for_Paul.csv

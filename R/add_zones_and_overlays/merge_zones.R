@@ -22,14 +22,14 @@ dbExecute(con,"DROP TABLE IF EXISTS dwellings_udp_zones")
 sql_query <- "CREATE TABLE dwellings_udp_zones AS
 SELECT 
     d.lat, d.lon,
-    v.zone_code, v.zone_short, v.zone_category
+    v.zone_code, v.zone_short, v.zoning_permits_housing,v.zone_description
 FROM 
     dwellings_urban_development_program d
 LEFT JOIN LATERAL (
     SELECT 
         vicmap_zones.zone_code,
         vicmap_zones.zone_short,
-        vicmap_zones.zone_category,
+        vicmap_zones.zoning_permits_housing,
         vicmap_zones.zone_description,
         vicmap_zones.geoms  -- Required for the ST_Intersects and ST_Area conditions
     FROM 

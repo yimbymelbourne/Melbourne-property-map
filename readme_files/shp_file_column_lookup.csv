@@ -1,9 +1,10 @@
 long_col_name,shp_file_col_name_short,length
-res_possible_desc,ResPossDes,10
+feature_preventing_development,FtrPreventingDevelopment,24
+zoning_permits_housing,ZoningPermitsHousing,20
+zone_description,ZoneDescription,15
 zone_short,ZoneShort,9
 heritage_overlay,HeOverlay,9
 feature_type_short,FetreType,9
-res_permitted_possible_desc,ResPerDes,9
 prox_walk_time_s_train,PWkSTrain,9
 prox_walk_dist_m_train,PWkMTrain,9
 traffic_pollution,Pollution,9
@@ -25,9 +26,7 @@ id_stock,IdStock,7
 address,Address,7
 dwellings_est,DwlgEst,7
 lot_size,LotSize,7
-zone_category,ZoneCat,7
 feature_type,FtrType,7
-res_possible,ResPoss,7
 prox_walk_time_s_bus,PWkSBus,7
 prox_walk_time_s_brt,PWkSBrt,7
 prox_walk_dist_m_bus,PWkMBus,7
@@ -41,7 +40,6 @@ dev_height_storeys,DHeight,7
 dev_status,DStatus,7
 suburb_name_2021,SuburbN,7
 heritage_db_id,HeDbId,6
-res_permitted_possible,ResPer,6
 prox_dist_m_tram,PMTram,6
 vacant_in_2016,Vacant,6
 dev_prj_id,DPrjId,6

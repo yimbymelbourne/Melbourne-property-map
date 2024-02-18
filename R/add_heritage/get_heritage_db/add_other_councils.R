@@ -5,9 +5,19 @@ source("R/00renv.R")
 
 
 source("R/03import_filtered_heritage_db.R")
-heritage_db <- import_filtered_heritage_db()
 
-port_phillip <- read_sf("input_data/port_phillip/Hertiage_policy grading_gazetted.shp") %>% 
+
+
+dwelling_data_crs <-  st_read(con, query = "SELECT dwellings_est,lat,lon,geometry FROM dwellings_urban_development_program
+                          LIMIT 1") %>% 
+  st_crs()
+
+
+heritage_db <- import_filtered_heritage_db() %>% 
+  st_transform(dwelling_data_crs)
+
+
+port_phillip <- read_sf("data/port_phillip_shapefile/Hertiage_policy grading_gazetted.shp") %>% 
   st_make_valid() %>% 
   st_transform(st_crs(heritage_db)) %>% 
   mutate(id = paste0("port_phillip_",COPP_PFI),
@@ -17,26 +27,37 @@ port_phillip <- read_sf("input_data/port_phillip/Hertiage_policy grading_gazette
          heritage_authority_name = "Port Phillip") %>% 
   select(id,
          status) %>% 
-  st_centroid()
+  st_centroid() %>% 
+  st_transform(dwelling_data_crs) 
+
+other_councils <- read_rds("working_data/com_and_coy_heritage_db.rds") %>% 
+  mutate(id =as.character(id)) %>% 
+  st_set_crs("wgs84") %>% 
+  st_transform(dwelling_data_crs)
+
+  
 
 all_heritage <- heritage_db %>% 
   mutate(id = as.character(id)) %>% 
-  bind_rows(port_philip) %>% 
-  distinct()
+  bind_rows(port_phillip) %>% 
+  distinct() %>%
+  bind_rows(other_councils)%>% 
+  select(-NUMBER_SUFFIX) %>% 
+  st_transform(dwelling_data_crs) %>% 
+  mutate(status = case_when(status == "Contributory" ~ "Overlay - Contributory",
+                            status == "Significant" ~ "Overlay - Significant",
+                            status == "Individually significant" ~ "Overlay - Significant",
+                            status == "individually significant" ~ "Overlay - Significant",
+                            status == "Individually Significant" ~ "Overlay - Significant",
+                            status == "Victorian Heritage register" ~ "Victorian Heritage Register",
+                            status == "Unknown" ~ "Overlay - Type of Listing Not Recorded",
+                            status == "Not contributory" ~ "Overlay - Not Signficant" ,
+                            status == "-" ~ "Overlay - Type of Listing Not Recorded",
+                            T ~ status))
 
 
-# create connection to postgres 
-con <- dbConnect(RPostgres::Postgres(),
-                 host = 'localhost', # host name, can be website/server
-                 port = 5433, # default port of postgres
-                 dbname = 'postgres', # name of database in postgres
-                 user = 'postgres', # the default user
-                 password = rstudioapi::askForPassword(), # password of user
-                 options="-c search_path=public" # specify what schema to connect to
-)
 
-
-write_sf(obj = all_heritage,
+st_write(obj = all_heritage,
          dsn = con, 
          Id(schema="public", 
             table = 'heritage_database'))
