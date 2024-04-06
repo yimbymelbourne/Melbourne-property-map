@@ -71,3 +71,10 @@ The code is designed to be modular, so you don't need to re-run everything in or
 * The state releases data on advertised [rents](https://github.com/yimbymelbourne/rental_report_cleaner) and house prices on a suburb level here
 * The [ABS](https://www.abs.gov.au/statistics/industry/building-and-construction/estimated-dwelling-stock/latest-release) releases dwelling changes at a SA2 level.
 * Each [census tablebuilder](https://tablebuilder.abs.gov.au/) product has dwelling counts that can be divided by the usual tablebuilder variables.
+
+## Changelog:
+2024/4/5
+* Changes Arden/West Melbourne's Special Use zone to "mixed use zone" since tehy do permit significant development
+* Changed "Moreland" to "Merri-bek" and added lga_code_2022 
+* Added dist_cbd variable
+

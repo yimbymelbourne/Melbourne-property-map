@@ -3,6 +3,10 @@ source("R/00renv.R")
 dbExecute(con, paste0("DROP TABLE IF EXISTS dwelling_data_clean"))
 dbExecute(con, paste0("DROP TABLE IF EXISTS dwelling_data_temp"))
 
+
+
+
+
 tbl(con,"dwellings_udp_unique") %>% 
   left_join(tbl(con,"dwellings_udp_poi")) %>% 
   left_join(tbl(con,"dwellings_udp_hos")) %>% 
@@ -32,6 +36,12 @@ tbl(con,"dwellings_udp_unique") %>%
   compute(name = "dwelling_data_temp", temporary = TRUE)  
 
 
+#Find CBD distance for all properties... 
+
+
+
+
+
 # reorder columns
 
 query <- DBI::dbSendQuery(con, "SELECT column_name FROM information_schema.columns WHERE table_name = 'dwelling_data_temp'")
@@ -54,6 +64,9 @@ last_cols <- "geometry"
 new_order <- c(first_cols, setdiff(col_names, c(first_cols,last_cols)),last_cols)
 
 
+
+
+
 # Construct the SQL for creating a new table or view
 # This is a simplified example; actual SQL will depend on your database system
 
@@ -61,9 +74,26 @@ dbExecute(con, paste0("CREATE TABLE dwelling_data_clean AS SELECT ", paste(new_o
           )
 
 
+
+## Now export in various formats. 
 dwelling_data_clean <- read_sf(con,
                 "dwelling_data_clean") 
 dwelling_data_clean %>% st_drop_geometry() %>% count(feature_type,feature_type_short,feature_preventing_development)
+
+
+# Save useful formats... 
+
+
+dwelling_data_clean %>% 
+  st_write("output/Melbourne dwelling data.gpkg",append = F)
+
+
+sfarrow::st_write_parquet(obj=dwelling_data_clean, dsn=file.path("output", "melbourne_dwelling_data.parquet"))
+
+dwelling_data_clean %>% st_drop_geometry() %>% write_csv("working_data/Melbourne dwelling data.csv")
+
+
+# Now annoying shapefile.... 
 
 
 # Function to capitalize letters following underscores and then remove underscores
@@ -91,8 +121,12 @@ capitalize_first_letter <- function(x) {
     # Capitalize only the first letter, leave the rest unchanged
     paste0(toupper(substring(word, 1, 1)), substring(word, 2))
   }, USE.NAMES = FALSE)
+  
+
+  
+  
+  
 }
-dwelling_data_clean %>% st_drop_geometry() %>% write_csv("working_data/Melbourne dwelling data.csv")
 
 
 #Sf requires short variable names which is very frustrating! 
@@ -148,8 +182,7 @@ dwellings_for_shape <- dwelling_data_clean %>%
 dwellings_for_shape %>% 
   write_sf("output/Melbourne dwelling data.shp",quiet = FALSE)
 
-dwelling_data_clean %>% 
-st_write("output/Melbourne dwelling data.gpkg",append = F)
+
 
 dwellings_for_shape %>% select(lat,
                                lon) %>% 

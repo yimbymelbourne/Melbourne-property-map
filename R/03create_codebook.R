@@ -53,7 +53,7 @@ my_informant <- create_informant(codebook_data) %>%
  </ol>",
     `Other data sources` =  "Data has also been added from the heritage register, zoning, overlays, distance to public transport (including walking distance), and traffic pollution",
     Updates = "Updated ~yearly when the UDP program flow data is updated",
-    `GitHub repo` = "[Melbourne Dwelling Map](https://github.com/jonathananolan/Melbourne-dwelling-map"
+    `GitHub repo` = "<a href='https://github.com/jonathananolan/Melbourne-dwelling-map'>Melbourne Dwelling Map</a>"
   )
 
 for (i in 1:nrow(metadata)) {
@@ -133,5 +133,5 @@ for (i in 1:nrow(metadata)) {
 
 my_informant %>% 
   get_informant_report(title = "Melbourne dwelling map data dictionary") %>% 
-export_report("codebook.html") 
+  export_report("codebook.html") 
 

@@ -42,3 +42,5 @@ import_filtered_heritage_db <- function(){
            crs = "wgs84")
   
 }
+
+heritage_db <- import_filtered_heritage_db()

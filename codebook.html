@@ -543,7 +543,7 @@
       <td colspan="1" class="gt_heading gt_title gt_font_normal" style="color: #444444; font-size: 28px; text-align: left; font-weight: 500;">Melbourne dwelling map data dictionary</td>
     </tr>
     <tr class="gt_heading">
-      <td colspan="1" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;"><span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2024-02-06|17:26:17]</span></p>
+      <td colspan="1" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;"><span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2024-04-05|19:37:12]</span></p>
 <div style="height:25px;margin-top:10px;"><span style="background-color:#F1D35A;color:#222222;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">tibble</span>
 <span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">codebook_data</span><span style="background-color:#eecbff;color:#333333;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #eecbff;padding:2px 15px 2px 15px;font-size:smaller;">Rows</span>
 <span style="background-color:none;color:#333333;padding:0.5em 0.5em;position:inherit;margin:5px 0px 5px -4px;font-weight:bold;border:solid 1px #eecbff;padding:2px 15px 2px 15px;font-size:smaller;">1,805,315</span>
@@ -578,25 +578,23 @@
 <p>Updated ~yearly when the UDP program flow data is updated</p>
 </div></td></tr>
     <tr><td headers="Table  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><h4 id="github-repo" style="margin-bottom:5px;">GITHUB REPO</h4>
-<p>[Melbourne Dwelling Map](<a href="https://github.com/jonathananolan/Melbourne-dwelling-map">https://github.com/jonathananolan/Melbourne-dwelling-map</a></p>
+<p><a href='https://github.com/jonathananolan/Melbourne-dwelling-map'>Melbourne Dwelling Map</a></p>
 </div></td></tr>
     <tr class="gt_group_heading_row">
       <th colspan="1" class="gt_group_heading" style="color: #444444; font-weight: 500; text-transform: uppercase; background-color: #FCFCFC; border-bottom-width: 1; border-bottom-style: solid; border-bottom-color: #EFEFEF;" scope="col" id="Columns">Columns</th>
     </tr>
     <tr class="gt_row_group_first"><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lon</code>  <code class="pb_col_type">numeric</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> lon</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> Longitude of centroid of land area</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Longitude of centroid of land area. Lat and Lon together are used as unique IDs for each block of land</p>
 <p><strong class="pb_sub_label">CREATION METHOD</strong> centroid of object in UDP</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Since this value is rounded to 5 decimals, occasionally there are duplicates (around 40 in the dataset). These are almost always annoyingly shaped driveways which should be excluded anyway because they are not suitable for development</p>
 <p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 145.1 <br>Median value: 145.1 <br>Maximum value: 146.2 <br>Minimum value: 144.4 <br>Standard deviation: 0.2 <br>NA: 0</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lat</code>  <code class="pb_col_type">numeric</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> lat</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> Latitude of centroid of land area</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Latitude of centroid of land area. Lat and Lon together are used as unique IDs for each block of land</p>
 <p><strong class="pb_sub_label">CREATION METHOD</strong> centroid of object in UDP</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Since this value is rounded to 5 decimals, occasionally there are duplicates (around 40 in the dataset). These are almost always annoyingly shaped driveways which should be excluded anyway because they are not suitable for development</p>
 <p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: -37.9 <br>Median value: -37.8 <br>Maximum value: -37.4 <br>Minimum value: -38.5 <br>Standard deviation: 0.2 <br>NA: 0</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">id_stock</code>  <code class="pb_col_type">character</code></p>
@@ -612,7 +610,7 @@
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">dwellings_est</code>  <code class="pb_col_type">numeric</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> DwlgEst</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> Best estimate for the number of dwellings that are currently on the piece of land</p>
-<p><strong class="pb_sub_label">CREATION METHOD</strong> dev_dwlgs_total or if blank dwlgs_in_2016</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> The UDP has an accurate measure of the number of dwellings on a property in 2016 (dwlgs_in_2016), then for developments with more than 10 units we use dev_dwlgs_total to see if there have been any additions from 2016-2022. We do not have data on small developments since 2016.</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Sometimes greenfield projects are listed as one large “development” when they are actually lots of smaller lots. Ideally we’d split these up into the subdivided properties</p>
 <p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 1.1 <br>Median value: 1 <br>Maximum value: 1424 <br>Minimum value: 0 <br>Standard deviation: 6.2 <br>NA: 0</p>
@@ -634,22 +632,20 @@
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ZoneCode</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> Full zoning code of property</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Extremely rarely more than one zone will cover the property in error. IN this case we pick the zone with the biggest overlap</p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Extremely rarely more than one zone will cover the property in error. In this case we pick the zone with the biggest overlap</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zone_short</code>  <code class="pb_col_type">factor</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ZoneShort</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> Name of zone in broad groups</p>
-<p><strong class="pb_sub_label">CREATION METHOD</strong> Grouping of zone codes into convenient types. “special development area” is a grouping of lots of different zones that tend to allow high density. (“DZ”,“CCZ”,“CDZ”,“MUZ”,“ACZ”,“PDZ”,“RGZ”)</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Grouping of zone codes into convenient types. “Mixed Use Zone” is a grouping of lots of different zones that tend to allow high density. (“DZ”,“CCZ”,“CDZ”,“MUZ”,“ACZ”,“PDZ”,“RGZ”, and “SUZ” in the Arden nad West Melbourne precinct.)</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Civic land (n= 28,952 )<br>Commercial (n= 44,119 )<br>Commonwealth land (n= 253 )<br>General residential (n= 992,822 )<br>Greenfield (n= 43,855 )<br>Industrial (n= 48,455 )<br>Low density residential (n= 33,176 )<br>Neighbourhood residential (n= 476,768 )<br>Rural/regional (n= 48,257 )<br>Special development area (n= 88,658 )</p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> A small number of “special development zones” have been labelled as commercial because it’s the best category available, but these might permit some residential development</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Civic land (n= 21,697 )<br>Commercial only (n= 15,051 )<br>Commonwealth land (n= 253 )<br>General residential (n= 992,794 )<br>Greenfield (n= 43,855 )<br>Industrial (n= 48,454 )<br>Low density residential (n= 33,177 )<br>Mixed use (n= 93,987 )<br>Neighbourhood residential (n= 476,758 )<br>Residential growth (n= 31,032 )<br>Rural/regional (n= 48,257 )</p>
 </div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zone_category</code>  <code class="pb_col_type">factor</code></p>
-<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ZoneCat</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> States if housing is permitted by zoning</p>
-<p><strong class="pb_sub_label">CREATION METHOD</strong> Housing is permitted in all the explicitely resi zones, the Commercial 1 zone and the Special development zones</p>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zone_description</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ZoneDescription</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Description of the zone</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> C1Z is listed as allowing development but not C3Z which can sometimes allow development</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Housing not generally permitted (n= 213,891 )<br>Housing permitted (n= 1,591,424 )</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_overlay</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> HeOverlay</p>
@@ -657,29 +653,29 @@
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> HO values are only unique within a council area. Extremely rarely more than one overlay will cover the property. In this case we pick the overlay with the biggest overlap</p>
 </div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_status</code>  <code class="pb_col_type">factor</code></p>
-<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> HeStatus</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> Level of heritage</p>
-<p><strong class="pb_sub_label">CREATION METHOD</strong> Contains every property that’s either zoned as HO by VICMAP or in the Victorian Heritage Database. Where the VHD provides the level of signficance this is provided.</p>
-<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Port Phillip data was emailed by council. Linked by lat/lon so not perfect - especially when councils have one entry in the Victorian Heritage Database for a whole area of heritage.</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> No heritage (n= 1,665,181 )<br>Overlay - Contributory (n= 24,759 )<br>Overlay - Not Signficant (n= 5,902 )<br>Overlay - Significant (n= 18,380 )<br>Overlay - Type of Listing Not Recorded (n= 89,996 )<br>Victorian Heritage Register (n= 1,097 )</p>
-</div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_db_id</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> HeDbId</p>
 <p><strong class="pb_sub_label">CREATION METHOD</strong> Victorian Heritage ID where it is available. You can visit the site of the ID by replacing the ID in this URL: <a href="https://vhd.heritagecouncil.vic.gov.au/places/13584">https://vhd.heritagecouncil.vic.gov.au/places/13584</a></p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://vhd.heritagecouncil.vic.gov.au'>Victorian Heritage database</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Linked by lat/lon so not perfect - especially when councils have one entry in the Victorian Heritage Database for a whole area of heritage.</p>
 </div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage_status</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> HeStatus</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Level of heritage</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Contains every property that’s either zoned as HO by VICMAP or in the Victorian Heritage Database. Where the VHD provides the level of signficance this is provided.</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Port Phillip data was emailed by council. Linked by lat/lon so not perfect - especially when councils have one entry in the Victorian Heritage Database for a whole area of heritage.</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> No heritage (n= 1,689,707 )<br>Overlay - Contributory (n= 34,322 )<br>Overlay - Not Signficant (n= 7,112 )<br>Overlay - Significant (n= 21,731 )<br>Overlay - Type of Listing Not Recorded (n= 50,966 )<br>Victorian Heritage Register (n= 1,477 )</p>
+</div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">heritage</code>  <code class="pb_col_type">factor</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Heritage</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> T/F if there is any heritage</p>
 <p><strong class="pb_sub_label">CREATION METHOD</strong> Checks for any value in heritage_status</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 1,665,181 )<br>TRUE (n= 140,134 )</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 1,689,707 )<br>TRUE (n= 115,608 )</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">ddo</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Ddo</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of heritage overlay if there is one</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Number of Design and development overlay if there is one</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> DDO values are only unique within a council area. Extremely rarely more than one overlay will cover the property. In this case we pick the overlay with the biggest overlap</p>
 </div></td></tr>
@@ -688,7 +684,7 @@
 <p><strong class="pb_sub_label">DESCRIPTION</strong> Number of Neighbourhood Character Overlay if there is one</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/2'>VICMAP</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> NCO values are only unique within a council area. Extremely rarely more than one overlay will cover the property. In this case we pick the overlay with the biggest overlap</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> NCO1 (n= 2,639 )<br>NCO10 (n= 82 )<br>NCO2 (n= 1,241 )<br>NCO3 (n= 843 )<br>NCO4 (n= 1,175 )<br>NCO5 (n= 760 )<br>NCO6 (n= 662 )<br>NCO7 (n= 554 )<br>NCO8 (n= 48 )<br>NCO9 (n= 100 )<br>NA (n= 1,797,211 )</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> NCO1 (n= 2,413 )<br>NCO10 (n= 63 )<br>NCO2 (n= 1,078 )<br>NCO3 (n= 654 )<br>NCO4 (n= 1,011 )<br>NCO5 (n= 671 )<br>NCO6 (n= 589 )<br>NCO7 (n= 425 )<br>NCO8 (n= 39 )<br>NCO9 (n= 83 )<br>NA (n= 1,798,289 )</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">feature_type_short</code>  <code class="pb_col_type">factor</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> FetreType</p>
@@ -696,39 +692,20 @@
 <p><strong class="pb_sub_label">CREATION METHOD</strong> Pulled from civic land zones as well as VICMAP Features of Interest such as parks, schools, hospitals and train stations.</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Some civic facilities might be useful for development despite being grouped ‘not for development’ here - e.g. you could build on a train station car park.</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> developable land (n= 37,867 )<br>not developable land (n= 114,222 )<br>NA (n= 1,653,226 )</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> developable land (n= 1,684,468 )<br>not developable land (n= 120,847 )</p>
 </div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">feature_type</code>  <code class="pb_col_type">factor</code></p>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">feature_type</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> FtrType</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> Presence of VICMAP feature</p>
 <p><strong class="pb_sub_label">CREATION METHOD</strong> Only includes information about VICMAP Features of Interest such as parks, schools, hospitals and train stations.</p>
 <p><strong class="pb_sub_label">SOURCE</strong> <a href='https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcGIS/rest/services/Vicmap_Planning/FeatureServer/3'>VICMAP</a></p>
 <p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Some civic facilities might be useful for development despite being grouped ‘not for development’ here - e.g. you could build on a train station car park.</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> admin facility (n= 6 )<br>agricultural area (n= 2 )<br>commercial facility (n= 18,552 )<br>community space (n= 532 )<br>defence site (n= 183 )<br>dumping ground (n= 113 )<br>education centre (n= 10,158 )<br>emergency facility (n= 11 )<br>excavation site (n= 135 )<br>hospital (n= 554 )<br>landmark (n= 7 )<br>pipeline facility (n= 76 )<br>power facility (n= 225 )<br>recreational resource (n= 191 )<br>reserve (n= 97,118 )<br>residential building (n= 19,313 )<br>sport facility (n= 4,910 )<br>storage facility (n= 3 )<br>NA (n= 1,653,226 )</p>
 </div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_possible_desc</code>  <code class="pb_col_type">factor</code></p>
-<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ResPossDes</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> Is it possible to build more dwellings on this site?</p>
-<p><strong class="pb_sub_label">CREATION METHOD</strong> Checks if there is a feature of interest preventing development in feature_type_short, whether there is already a development on site from dwellings_est</p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Not all sites will be suitable - e.g. they could already have a massive commercial building on them. They could be driveways or other awkward sites.</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Already more than one property on this land (n= 35,582 )<br>Available for residential development (n= 1,655,511 )<br>Parks and civic facilities that aren’t typically developed on (n= 114,222 )</p>
-</div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_possible</code>  <code class="pb_col_type">factor</code></p>
-<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ResPoss</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> binary of res_possible_desc</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 149,804 )<br>TRUE (n= 1,655,511 )</p>
-</div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_permitted_possible_desc</code>  <code class="pb_col_type">factor</code></p>
-<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ResPerDes</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> Is this land on a site that’s typically able to be built upon?</p>
-<p><strong class="pb_sub_label">CREATION METHOD</strong> checks if it’s possible to build new homes on the site e.g. there isn’t already a feature of interest or other development on the site (res_possible == T) as well as whether zoning permits residential development (zone_category == “Available for residential development”)</p>
-<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Doesn’t consider zoning limits - e.g. You can’t build on small sites even if it’s permitted otherwise by the zoning</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Already more than one property on this land (n= 35,582 )<br>Available for residential development (n= 1,469,544 )<br>Parks and civic facilities that aren’t typically developed on (n= 114,222 )<br>Zoning usually prevents dwelling construction (n= 185,967 )</p>
-</div></td></tr>
-    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">res_permitted_possible</code>  <code class="pb_col_type">factor</code></p>
-<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ResPer</p>
-<p><strong class="pb_sub_label">DESCRIPTION</strong> binary of res_permitted_possible_desc</p>
-<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 335,771 )<br>TRUE (n= 1,469,544 )</p>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">feature_preventing_development</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> FtrPreventingDevelopment</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Is there a feature of interest that makes development more difficult.</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> Based on feature_type_short that would make development difficult</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> FALSE (n= 1,684,468 )<br>TRUE (n= 120,847 )</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">prox_walk_time_s_bus</code>  <code class="pb_col_type">numeric</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> PWkSBus</p>
@@ -943,23 +920,43 @@
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> DDataType</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> Is this property created by this repo?</p>
 <p><strong class="pb_sub_label">CREATION METHOD</strong> Where there is a development that only occurs on part of a property on the ‘stock’ layer - this is the leftover property. Often this is an error.</p>
-<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Urban Development Program</a></p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://www.planning.vic.gov.au/guides-and-resources/data-and-insights/urban-development-program'>Strayr package</a></p>
 <p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> leftover land from a development (n= 323 )<br>NA (n= 1,804,992 )</p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">rn</code>  <code class="pb_col_type">factor</code></p>
 <p><strong class="pb_sub_label"></strong></p>
 </div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">zoning_permits_housing</code>  <code class="pb_col_type">factor</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> ZoningPermitsHousing</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> States whether zoning permits housing</p>
+<p><strong class="pb_sub_label">CREATION METHOD</strong> based on the zone_short and whether zoning permits housing in that zone_short</p>
+<p><strong class="pb_sub_label">DATA QUALITY ISSUES</strong> Note: zoning may permit housing but there could be a feature of interest such as a school etc that makes new housing impossible</p>
+<p><strong class="pb_sub_label">FACTOR LEVELS</strong> <br> Housing not generally permitted (n= 85,455 )<br>Housing permitted (n= 1,671,603 )<br>Rural/regional (n= 48,257 )</p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">cbd_dist</code>  <code class="pb_col_type">numeric</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> CbdDist</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> Haversine distance to the CBD in meters</p>
+<p><strong class="pb_sub_label">SUMMARY STATISTICS</strong> <br>Average value: 23887.3 <br>Median value: 20518.7 <br>Maximum value: 111274.6 <br>Minimum value: 22.9 <br>Standard deviation: 14735.7 <br>NA: 0</p>
+</div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lga_name_2022</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> LgaN2022</p>
+<p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value - note that “Merri-bek” has been changed to it’s new name, and if you are joining to other maps you might consider using lga_code_2022 which is unchanged</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
+</div></td></tr>
+    <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">lga_code_2022</code>  <code class="pb_col_type">character</code></p>
+<p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> LgaC2022</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">postcode_2021</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> Postc</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">suburb_name_2021</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> SuburbN</p>
 <p><strong class="pb_sub_label">DESCRIPTION</strong> ASGS area value</p>
+<p><strong class="pb_sub_label">SOURCE</strong> <a href='https://runapp-aus.github.io/strayr/'>Strayr package</a></p>
 </div></td></tr>
     <tr><td headers="Columns  item" class="gt_row gt_left" style="color: #666666; font-size: smaller; border-top-width: 1; border-top-style: solid; border-top-color: #EFEFEF;"><div class='gt_from_md'><p><code style="margin-bottom:5px;color:#555555;font-weight:500;line-height:2em;border:solid 1px #499FFE;padding:2px 8px 3px 8px;background-color:#FAFAFA;">ced_name_2021</code>  <code class="pb_col_type">character</code></p>
 <p><strong class="pb_sub_label">SHAPEFILE SHORT COLUMN NAME</strong> CedN</p>
@@ -1011,9 +1008,9 @@
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
-      <td class="gt_sourcenote" colspan="1"><span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2024-02-06 17:26:54 EST</span>
+      <td class="gt_sourcenote" colspan="1"><span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2024-04-05 19:37:16 EDT</span>
 <span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;margin:5px 1px 5px 0;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">&lt; 1 s</span>
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2024-02-06 17:26:54 EST</span></td>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2024-04-05 19:37:16 EDT</span></td>
     </tr>
   </tfoot>
   

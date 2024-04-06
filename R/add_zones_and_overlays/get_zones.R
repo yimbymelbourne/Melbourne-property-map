@@ -13,7 +13,9 @@ vicmap_zones_rest_api_url <- 'https://services6.arcgis.com/GB33F62SbDxJjwEL/ArcG
 zones <- arcpullr::get_spatial_layer(vicmap_zones_rest_api_url) 
 
 zones <- zones %>% mutate(zone_short =  str_replace(zone_code, "[0-9]+$", ""),
-                          zone_short = case_when(str_detect(zone_short,"IN|PZ")~ "Industrial",
+                          zone_short = case_when(lga == "MELBOURNE" & zone_code %in% c("SUZ6","SUZ7") ~ "Mixed use", #Special use zone are a rare zone that usually don't permit any development, although occasionally they're placed on resi sites. These few are for Arden
+                                                 str_detect(zone_short,"SUZ")  ~ "Commercial only", #Special use zone are varied, but we want to limit category numbers and they are usually most similar to commerical zoning. 
+                                                 str_detect(zone_short,"IN|PZ") ~ "Industrial",
                                                  zone_short == "CA" ~ "Commonwealth land",
                                                  zone_short %in% c("R1Z","GRZ") ~ "General residential",
                                                  zone_short %in% c("DZ",
@@ -21,23 +23,29 @@ zones <- zones %>% mutate(zone_short =  str_replace(zone_code, "[0-9]+$", ""),
                                                                    "CDZ",
                                                                    "MUZ",
                                                                    "ACZ",
-                                                                   "PDZ")     ~ "Mixed use",
+                                                                   "PDZ",
+                                                                   "C1Z",
+                                                                   "C3Z"
+                                                                   )     ~ "Mixed use",
                                                  substr(zone_short,1,1) =="B" ~ "Mixed use",#https://www.pc.gov.au/research/completed/vic-commercial-zoning/vic-commercial-zoning.pdf
-                                                 zone_code == "C1Z|C3Z"~            "Mixed use", #c1 replaced the B zones. 
-                                                 zone_short == "RGZ" ~ "Residential Growth",
+                                                 zone_short == "RGZ" ~ "Residential growth",
                                                  zone_short == "UGZ" ~ "Greenfield",
                                                  substr(zone_short,1,1) =="C" ~ "Commercial only",
                                                  substr(zone_short,1,1) %in% c("R","F") ~ "Rural/regional",
                                                  substr(zone_short,1,2) == "GW" ~ "Rural/regional",
                                                  zone_short == "TZ" ~ "Rural/regional",
-                                                 zone_short %in% c("PPRZ","PUZ","PCRZ","SUZ","UFZ","TRZ") ~ "Civic land",
+                                                 zone_short %in% c("PPRZ",
+                                                                   "PUZ",
+                                                                   "PCRZ",
+                                                                   "UFZ",
+                                                                   "TRZ") ~ "Civic land",
                                                  zone_short == "NRZ" ~ "Neighbourhood residential",
                                                  zone_short == "LDRZ" ~ "Low density residential",
                           T ~ zone_short)) %>% 
   mutate(zoning_permits_housing = case_when(zone_short %in% c("General residential",
                                                      "Low density residential",
                                                      "Mixed use",
-                                                     "Residential Growth",
+                                                     "Residential growth",
                                                      "Neighbourhood residential",
                                                      "Greenfield") ~ "Housing permitted",
                                    zone_short == "Rural/regional" ~ "Rural/regional",
@@ -49,22 +57,5 @@ st_write(obj = zones,
          dsn = con, 
          Id(schema="public", 
             table = 'vicmap_zones'))
-
-zones %>% 
-  mutate(zones_for_paul_only_four_options = case_when(zoning_permits_housing == "Housing not generally permitted" ~ "Housing not generally permitted",
-                                                      zone_short %in% c("Low density residential",
-                                                                        "Neighbourhood residential",
-                                                                        "Rural/regional",
-                                                                        "Greenfield") ~ "NRZ and other low density zones",
-                                                      zone_short %in% c("Residential Growth","Mixed use") ~ "Higher density zones",
-                                                                        T ~ zone_short) ) %>% 
-  st_drop_geometry() %>% 
-  group_by(zone_short,
-           zones_for_paul_only_four_options,
-           zone_code,
-           zone_description
-          ) %>% 
-  summarise(n=n()) %>% view()
-  write_csv("zone_types_for_Paul.csv")
 
 

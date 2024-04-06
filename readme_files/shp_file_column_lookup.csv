@@ -21,6 +21,7 @@ dev_dwlgs_detached,DDwlgDet,8
 dev_prj_name,DPrjName,8
 dev_id_stock_former,DIdStOld,8
 lga_name_2022,LgaN2022,8
+lga_code_2022,LgaC2022,8
 sed_name_2022,SedN2022,8
 id_stock,IdStock,7
 address,Address,7
@@ -38,6 +39,7 @@ dev_dwlgs_total,DDwlgTl,7
 dev_dwlgs_apartments,DDwlgAp,7
 dev_height_storeys,DHeight,7
 dev_status,DStatus,7
+cbd_dist,CbdDist,7
 suburb_name_2021,SuburbN,7
 heritage_db_id,HeDbId,6
 prox_dist_m_tram,PMTram,6

@@ -12,3 +12,8 @@ test.prj
 test.shp
 test.shx
 zone_types_for_Paul.csv
+.DS_Store
+.DS_Store
+osm_linkage_to_property_db.csv
+test.geojson
+make_arrow.py

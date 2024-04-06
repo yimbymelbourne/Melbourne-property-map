@@ -2,7 +2,8 @@ library(strayr)
 read_absmap("sa42021")
 
 
-lga2022 <- read_absmap("lga2022") %>% select(lga_name_2022)
+lga2022 <- read_absmap("lga2022") %>% select(lga_name_2022,lga_code_2022) %>% 
+  mutate(lga_name_2022 = if_else(lga_name_2022 == "Moreland","Merri-bek",lga_name_2022)) # Moreland changed name in 2021
 
 postcode2021 <- read_absmap("postcode2021") %>% select(postcode_2021)
 
@@ -25,10 +26,24 @@ sa12021<- read_absmap("sa12021") %>% select(sa1_code_2021,
 
 lat_lons <- dbGetQuery(con, "SELECT lat, lon FROM dwellings_urban_development_program") 
 
-lat_lons_geo <- lat_lons %>% 
+
+
+
+cbd_dist <- lat_lons %>% 
+  mutate(cbd_lon = 144.962646,
+         cbd_lat = -37.810272)%>%
+  rowwise() %>% 
+  mutate(cbd_dist = geosphere::distHaversine(c(lon, lat), 
+                                  c(cbd_lon, cbd_lat))) %>% 
+  ungroup() %>%
+  select(-cbd_lat,-cbd_lon)
+
+lat_lons_geo <- cbd_dist %>% 
   st_as_sf(coords = c("lon","lat"), 
            crs = 4326) %>% 
   st_set_crs(4326)
+
+
 
 lat_lons_with_asgs <- lat_lons_geo %>% 
   st_join(lga2022) %>%
